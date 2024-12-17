@@ -20,6 +20,7 @@ docker run   -d \
   --name dbserver \
   quay.io/uvelyster/mysql:5.7
 
-docker run -d --name webserver -v /root/docker/cloud-demo/:/var/www/html/ -p 2222:80 --net myapp-net docker.io/library/php:7.3-apache
-docker exec webserver docker-php-ext-install mysqli
-docker restart webserver
+docker run -d --name webserver -v /source:/var/www/html/ -p 2222:80 --net myapp-net phpweb:v1
+
+# docker exec webserver docker-php-ext-install mysqli
+# docker restart webserver
